@@ -12,6 +12,7 @@ import './index.css'
 import { Memorize } from './06-memos/Memorize.jsx'
 import { MemoHook } from './06-memos/MemoHook.jsx'
 import { CallbackHook } from './06-memos/CallbackHook.jsx'
+import './08-useReducer/intro-reducer.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -25,7 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Layout /> */}
     {/* <Memorize /> */}
     {/* <MemoHook /> */}
-    <CallbackHook />
+    {/* <CallbackHook /> */}
 
   </React.StrictMode>,
 )
