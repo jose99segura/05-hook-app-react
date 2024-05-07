@@ -5,7 +5,7 @@ export const useForm = ( initialForm = {} ) => {
 
     const [ formState, setFormState ] = useState( initialForm );
 
-    const onInputChante = ({target}) => {
+    const onInputChange = ({target}) => {
       const { name, value } = target;
       setFormState({
         // Mantenemos el estado anterior
@@ -21,7 +21,7 @@ export const useForm = ( initialForm = {} ) => {
     return {
         ...formState,
         formState,
-        onInputChante,
+        onInputChange,
         onResetForm
     }
   

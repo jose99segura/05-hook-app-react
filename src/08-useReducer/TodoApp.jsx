@@ -1,37 +1,37 @@
-import { useReducer } from "react"
-import { todoReducer } from "./todoReducer";
 
+import { TodoList } from "./TodoList";
+import { TodoAdd } from "./TodoAdd";
+import { useTodos } from "../hooks/useTodos";
 
-const initialState = [
-  {
-    id: new Date().getTime(),
-    description: 'Aprender React',
-    done: false
-  },
-  {
-    id: new Date().getTime() * 3,
-    description: 'Aprender React',
-    done: false
-  }
-];
 
 export const TodoApp = () => {
 
-  const [ todos, dispatch ] = useReducer( todoReducer, initialState );
+	const { todos, todosCount, pendingTodosCount, handleDeleteTodo, handleToggleTodo, handleNewTodo } = useTodos();
 
+	return (
+		<>
 
-  return (
-    <>
-      <h1>TodoApp</h1>
-      <hr />
+			<h1>TodoApp: { todosCount }, <small> pendientes: { pendingTodosCount } </small></h1>
+			<hr />
 
-      <ul>
-        <li>TodoApp</li>
-        <li>TodoApp</li>
-        <li>TodoApp</li>
-      </ul>
-    
+			<div className="row">
+					<div className="col-7">
+						{/* TodoList */}
+						<TodoList 
+							todos={todos} 
+							onDeleteTodo={ handleDeleteTodo }
+							onToggleTodo={ handleToggleTodo }
+						/>
+					</div>
 
-    </>
-  )
+					<div className="col-5">
+						<h4>Agregar TODO</h4>
+						<hr />
+						{/* TodoAdd onNewTodo*/}
+						<TodoAdd onNewTodo={ handleNewTodo } />
+					</div>
+			</div>
+
+		</>
+	)
 }
